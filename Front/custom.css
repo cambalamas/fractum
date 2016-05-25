@@ -1,0 +1,33 @@
+/*Custom CSS for FRACTM TEMPLATE*/
+
+body
+{
+	padding-top: 70px;
+	background-color: rgb(39,30,30);
+}
+
+.login
+{
+	padding-top: 150px;
+	padding-right: 350px;
+	padding-left: 350px;
+	background-color: rgb(39,30,30);
+}
+
+/*.hint-ABS {
+    position: absolute;
+    top: 237px;
+}
+.hint-REL {
+    position: relative;
+    left: 260px;
+}*/
+
+.emptyButton
+{
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	border: none;
+		
+}
