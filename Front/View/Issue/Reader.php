@@ -1,7 +1,7 @@
 <?php $issueDetail=$_SESSION['IssueReader'][0];?>
 
-<form method="post" action="../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Reader&targets=S,A">
-	
+<form method="post" action="../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Reader&targets=S,A&deps=Device,Line">
+
 	<div class="row center-block" style="background: #DDFFDD">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<center><i>

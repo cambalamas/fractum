@@ -12,22 +12,22 @@
         <div class="collapse navbar-collapse" id="NavCollapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="../../Back/RequestManager.php?actors=User,User&actions=Puller,Creator&targets=S,S">USUARIOS</a>
+                    <a href="../../Back/RequestManager.php?actors=User,User&actions=Puller,Creator&targets=S,S&deps=Permissions">USUARIOS</a>
                 </li>
                 <li>
                     <a href="../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Creator&targets=S,S">LINEAS</a>
                 </li>
                 <li>
-                    <a href="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Creator&targets=S,S">DISPOSITIVOS</a>
+                    <a href="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Creator&targets=S,S&deps=Upkeep,Line">DISPOSITIVOS</a>
                 </li>
                 <li>
-                    <a href="../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Creator&targets=S,S">INCIDENCIAS</a>
+                    <a href="../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Creator&targets=S,S&deps=Device,Company">INCIDENCIAS</a>
                 </li>
                 <li>
                     <a href="../../Back/RequestManager.php?actors=Company,Company&actions=Puller,Creator&targets=S,S">EMPRESAS</a>
                 </li>
                 <li>
-                    <a href="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Creator&targets=S,S">MANTENIMIENTO</a>
+                    <a href="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Creator&targets=S,S&deps=Company">MANTENIMIENTO</a>
                 </li>
                 <li>
                     <a href="../../Back/RequestManager.php?actors=Permissions&actions=Puller&targets=S"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a>

@@ -1,7 +1,7 @@
 <?php $deviceDetail=$_SESSION['DeviceReader'][0];?>
 
-<form method="post" action="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Reader&targets=S,A">
-	
+<form method="post" action="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Reader&targets=S,A&deps=Upkeep,Line">
+
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>Nº SERIE</label>
@@ -28,7 +28,7 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>COSTE</label>
-	  		<input type="text" disabled name="cost" class="form-control" value="<?php echo $deviceDetail['cost'] ?>"> 
+	  		<input type="text" disabled name="cost" class="form-control" value="<?php echo $deviceDetail['cost'] ?>">
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>LÍNEA PERTENECIENTE</label>

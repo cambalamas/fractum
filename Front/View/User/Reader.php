@@ -1,7 +1,7 @@
 <?php $userDetail=$_SESSION['UserReader'][0];?>
 
-<form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Reader&targets=S,A">
-	
+<form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Reader&targets=S,A&deps=Permissions">
+
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>DNI</label>
@@ -28,7 +28,7 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>CORREO</label>
-	  		<input type="email" disabled name="email" class="form-control" value="<?php echo $userDetail['mail'] ?>"> 
+	  		<input type="email" disabled name="email" class="form-control" value="<?php echo $userDetail['mail'] ?>">
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>TELÉFONO</label>

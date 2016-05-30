@@ -8,8 +8,8 @@
 
 ?>
 
-<form method="post" action="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Reader&targets=S,A">
-	
+<form method="post" action="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Reader&targets=S,A&deps=Company">
+
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>EMPRESA</label>
@@ -40,7 +40,7 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>COSTE</label>
-	  		<input type="text" name="cost" disabled class="form-control" value="<?php echo $upkeepDetail['cost']; ?>"> 
+	  		<input type="text" name="cost" disabled class="form-control" value="<?php echo $upkeepDetail['cost']; ?>">
 	  	</div>
 	</div>
 
