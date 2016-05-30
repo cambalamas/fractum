@@ -2,20 +2,23 @@
 
 $requestM = new RequestManager();
 $requestM->Handler();
+$requestM->GestDeps();
 
-class RequestManager{
-
+class RequestManager
+{
 	protected $actors;
 	protected $actions;
-	protected $data; 
+	protected $data;
 	protected $targets;
+	protected $deps; //dependencias;
 
 	function __construct()
-	{ 
+	{
 		$this->data = $_POST;
 		$this->targets = explode(",",$_GET['targets']);
 		$this->actors = explode(",",$_GET['actors']);
 		$this->actions = explode(",",$_GET['actions']);
+		$this->deps = explode(",",$_GET['deps']);
 	}
 
 //---------Manager---------------------.
@@ -30,8 +33,7 @@ class RequestManager{
 			$this->Trigger('User','Login',$db,$this->data);
 			mysqli_close($db);
 
-			// Esto hay que variarlo según lo que queramos que sea el home.
-			header("Location: ../index.php", false);
+			header("Location: ../index.php", false); //HOME con estadísticas.
 		}
 
 		elseif($cookieStatus)
@@ -39,7 +41,7 @@ class RequestManager{
 			for($i=0;$i<count($this->actors);$i++)
 			{
 				$permissionStatus = $this->CheckPermissions($this->actors[$i],$this->actions[$i],$db);
-				
+
 				if($permissionStatus)
 				{
 					if($this->targets[$i]=='A')
@@ -98,7 +100,7 @@ class RequestManager{
 
 			$outActors = $this->StringArray($this->actors);
 			$outActions = $this->StringArray($this->actions);
-			
+
 			mysqli_close($db);
 			header("Location: ../Front/View/Layout.php?actors=".$outActors."&actions=".$outActions, false);
 		}
@@ -107,14 +109,14 @@ class RequestManager{
 	}
 
 	protected function Trigger($actor,$action,$db,$data)
-	{	
+	{
 		require_once("./Model/".$actor.".php");
-		
+
 		if($action=='Puller'){
 			$toDo = array($actor,$action);
 			$data = User::Handler('GetRules',$db,$toDo);
 		}
-		
+
 		$solvedRequest = $actor::Handler($action,$db,$data);
 
 		switch ($action)
@@ -163,7 +165,7 @@ class RequestManager{
 			$data = array($userData['dni'],$token);
 			User::Handler('SetUserToken',$db,$data);
 		}
-		
+
 		elseif ($action=='Logout')
 		{
 			setcookie('user',null,-1,'/'); unset($_COOKIE['user']);
@@ -185,7 +187,7 @@ class RequestManager{
     }
 
     protected function StringArray($array)
-    {	
+    {
     	$toString = $array[0];
     	unset($array[0]);
 
@@ -195,7 +197,21 @@ class RequestManager{
 
     	return $toString;
     }
+
+		protected function GestDeps()
+		{
+			$db = mysqli_connect("localhost","fractum","fractum","fractum");
+			if(!empty($this->deps))
+			{
+				foreach($this->deps as $dep)
+				{
+					Trigger($dep,'Puller',$db,null);
+				}
+			}
+		}
 }
+
+
 //---------Tools---------------------.
 
 ?>
