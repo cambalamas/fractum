@@ -21,7 +21,7 @@
 </script>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=Permissions&actions=Creator&targets=A">
+	<form method="post" action="../../Back/RequestManager.php?actors=Permissions&actions=Creator&targets=A">
 		<strong>Nuevo tipo: &nbsp; &nbsp;</strong> <input value="" name="type"/> &nbsp; 
 		<button type="submit" class="emptyButton">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -41,7 +41,7 @@
 			<br><div class="row text-center"> <!-- CUTRADA -->
 				<div class="panel-heading" style="background: #F5F5F5;">
 					<h3 class="panel-title">
-							<form method="post" action="../../../Back/RequestManager.php?actors=Permissions&actions=Eraser&targets=A">
+							<form method="post" action="../../Back/RequestManager.php?actors=Permissions&actions=Eraser&targets=A">
 	  							<button type="submit" class="emptyButton">
 	  								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 	  								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -96,7 +96,7 @@
 
 
 <div class="row center-block"> <br>
-	<form method="post" action="../../../Back/RequestManager.php?actors=Permissions&actions=Updater&targets=A" onsubmit="save()">
+	<form method="post" action="../../Back/RequestManager.php?actors=Permissions&actions=Updater&targets=A" onsubmit="save()">
 	    <input type="hidden" id="saveVar" value="" name="changes" type="hidden"/>
 	  	<button type="submit" class="col-xs-12 btn btn-primary"> GUARDAR CAMBIOS </button>
 	</form>

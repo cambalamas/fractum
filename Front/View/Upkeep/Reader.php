@@ -8,7 +8,7 @@
 
 ?>
 
-<form method="post" action="../../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Reader&targets=S,A">
+<form method="post" action="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Reader&targets=S,A">
 	
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

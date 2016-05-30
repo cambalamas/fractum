@@ -1,6 +1,6 @@
 <?php $lineDetail=$_SESSION['LineReader'][0]; ?>
 
-<form method="post" action="../../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Reader&targets=S,A">
+<form method="post" action="../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Reader&targets=S,A">
 	
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -10,7 +10,7 @@
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>ESTADO</label>
-	  		<input type="text" disabled name="status" class="form-control" value="<?php echo $lineDetail['status'] ?>">
+	  		<input type="text" disabled name="status" class="form-control" value="<?php if($lineDetail['status'] == 0) echo 'Inactiva'; else echo 'Activa'; ?>">
 	  	</div>
 	</div>
 

@@ -31,7 +31,7 @@ class RequestManager{
 			mysqli_close($db);
 
 			// Esto hay que variarlo según lo que queramos que sea el home.
-			header("Location: ../../index.php", false);
+			header("Location: ../index.php", false);
 		}
 
 		elseif($cookieStatus)
@@ -100,10 +100,10 @@ class RequestManager{
 			$outActions = $this->StringArray($this->actions);
 			
 			mysqli_close($db);
-			header("Location: ../../Front/View/Layout.php?actors=".$outActors."&actions=".$outActions, false);
+			header("Location: ../Front/View/Layout.php?actors=".$outActors."&actions=".$outActions, false);
 		}
 
-		else{ mysqli_close($db); header("Location: ../../index.php?fail=Login-Cookie",false); }
+		else{ mysqli_close($db); header("Location: ../index.php?fail=Login-Cookie",false); }
 	}
 
 	protected function Trigger($actor,$action,$db,$data)
@@ -150,7 +150,7 @@ class RequestManager{
 	{
 		if($action=='Login')
 		{
-			if($userData['dni']==''){ header("Location: ../../index.php?fail=Login-Incorrecto",false);}
+			if($userData['dni']==''){ header("Location: ../index.php?fail=Login-Incorrecto",false);}
 			list($usec, $sec) = explode(' ', microtime());
 			srand((float) $sec + ((float) $usec * 100000));
 			$token = rand();
@@ -169,7 +169,7 @@ class RequestManager{
 			setcookie('user',null,-1,'/'); unset($_COOKIE['user']);
 			setcookie('token',null,-1,'/'); unset($_COOKIE['token']);
 			setcookie('type',null,-1,'/'); unset($_COOKIE['type']);
-			session_unset(); header("Location: ../../index.php",false);
+			session_unset(); header("Location: ../index.php",false);
 		}
 	}
 

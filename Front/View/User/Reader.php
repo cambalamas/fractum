@@ -1,6 +1,6 @@
 <?php $userDetail=$_SESSION['UserReader'][0];?>
 
-<form method="post" action="../../../Back/RequestManager.php?actors=User,User&actions=Puller,Reader&targets=S,A">
+<form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Reader&targets=S,A">
 	
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -50,7 +50,7 @@
 </form>
 
 <div class="row center-block">
-	<form method="post" action="../../../Back/RequestManager.php?actors=User,User&actions=Puller,Perms&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Perms&targets=S,S">
 		<input type="hidden" name="dni" class="form-control" value="<?php echo $userDetail['dni'] ?>">
 		<button type="submit"class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn btn-danger"> EDITAR REGLAS </button>
 	</form>

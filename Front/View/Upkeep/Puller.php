@@ -18,7 +18,7 @@
 ?>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Reader&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Reader&targets=S,S">
 		<input type="hidden" name="id" value="<?php echo $allUpkeeps[$k]['id'] ?>"/>
 		<button type="submit" class="emptyButton col-xs-12">
 			<div class='col-xs-3'> <?php echo $allUpkeeps[$k]['company'] ?> </div>

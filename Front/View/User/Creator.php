@@ -1,4 +1,4 @@
-<form method="post" action="../../../Back/RequestManager.php?actors=User,User&actions=Puller,Creator&targets=S,A">
+<form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Creator&targets=S,A">
 
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

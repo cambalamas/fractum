@@ -10,7 +10,7 @@
 <?php for($k=0; $k<count($allLines); $k++){ ?>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Reader&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Reader&targets=S,S">
 		<input type="hidden" name="id" value="<?php echo $allLines[$k]['id'] ?>"/>
 		<button type="submit" class="emptyButton col-xs-12">
 			<div class='col-xs-2'> </div>

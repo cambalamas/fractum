@@ -10,7 +10,7 @@
 <?php for($k=0; $k<count($allDevices); $k++){ ?>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Reader&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Reader&targets=S,S">
 		<input type="hidden" name="serialNumber" value="<?php echo $allDevices[$k]['serialNumber'] ?>"/>
 		<button type="submit" class="emptyButton col-xs-12">
 			<div class='col-xs-3'> <?php echo $allDevices[$k]['name'] ?> </div>

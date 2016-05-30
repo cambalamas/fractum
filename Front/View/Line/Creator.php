@@ -1,4 +1,4 @@
-<form method="post" action="../../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Creator&targets=S,A">
+<form method="post" action="../../Back/RequestManager.php?actors=Line,Line&actions=Puller,Creator&targets=S,A">
 
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -7,7 +7,10 @@
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>ESTADO</label>
-	  		<input type="text" name="status" class="form-control" value="">
+			<select class="form-control" name="status">
+				<option value="0">Inactiva</option>
+				<option selected value="1">Activa</option>
+			</select>
 	  	</div>
 	</div>
 

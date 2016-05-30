@@ -10,7 +10,7 @@
 <?php for($k=0; $k<count($allUsers); $k++){ ?>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=User,User&actions=Puller,Reader&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Reader&targets=S,S">
 		<input type="hidden" name="dni" value="<?php echo $allUsers[$k]['dni'] ?>"/>
 		<button type="submit" class="emptyButton col-xs-6">
 			<div class='col-xs-6'> <?php echo $allUsers[$k]['name'] ?> </div>

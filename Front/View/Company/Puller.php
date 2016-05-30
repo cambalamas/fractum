@@ -10,7 +10,7 @@
 <?php for($k=0; $k<count($allCompanies); $k++){ ?>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=Company,Company&actions=Puller,Reader&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=Company,Company&actions=Puller,Reader&targets=S,S">
 		<input type="hidden" name="cif" value="<?php echo $allCompanies[$k]['cif'] ?>"/>
 		<button type="submit" class="emptyButton col-xs-6">
 			<div class='col-xs-6'> <?php echo $allCompanies[$k]['cif'] ?> </div>

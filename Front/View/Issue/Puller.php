@@ -17,7 +17,7 @@
 ?>
 
 <div class="row text-center">
-	<form method="post" action="../../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Reader&targets=S,S">
+	<form method="post" action="../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Reader&targets=S,S">
 		<input type="hidden" name="id" value="<?php echo $allIssues[$k]['id'] ?>"/>
 		<button type="submit" class="emptyButton col-xs-12">
 			<div class='col-xs-3'> <?php echo $allIssues[$k]['title'] ?> </div>
