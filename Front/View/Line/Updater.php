@@ -11,7 +11,7 @@
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>ESTADO</label>
 			<select class="form-control" name="status">
-				<option hidden value="<?php echo $lineDetail['status']; ?>"><?php if($lineDetail['status'] == 1) echo 'Activa'; else echo 'Inactiva' ?></option>
+				<option hidden selected value="<?php echo $lineDetail['status']; ?>"><?php if($lineDetail['status'] == 1) echo 'Activa'; else echo 'Inactiva' ?></option>
 				<option value="1"><?php echo 'Activa'; ?></option>
 				<option value="0"><?php echo 'Inactiva'; ?></option>
 			</select>

@@ -11,7 +11,7 @@ class User
 //HERRAMIENTAS DE AUTENTICADO.
 	function Login($db,$data)
 	{
-		$sql = mysqli_prepare($db, "SELECT dni,type FROM user WHERE dni = ? AND pass = ?");
+		$sql = mysqli_prepare($db, "SELECT dni,type,name FROM user WHERE dni = ? AND pass = ?");
 		mysqli_stmt_bind_param($sql, 'ss', $data['name'], $data['pass']); mysqli_stmt_execute($sql);
 		$sqlObject = mysqli_stmt_get_result($sql); mysqli_stmt_close($sql);
 		

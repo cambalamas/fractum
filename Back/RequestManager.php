@@ -1,8 +1,8 @@
 <?php
 
 $requestM = new RequestManager();
-$requestM->Handler();
 $requestM->GestDeps();
+$requestM->Handler();
 
 class RequestManager
 {
@@ -18,14 +18,17 @@ class RequestManager
 		$this->targets = explode(",",$_GET['targets']);
 		$this->actors = explode(",",$_GET['actors']);
 		$this->actions = explode(",",$_GET['actions']);
-		$this->deps = explode(",",$_GET['deps']);
+		if(isset($_GET['deps']))
+			$this->deps = explode(",",$_GET['deps']);
+		else
+			$this->deps = '';
 	}
 
 //---------Manager---------------------.
 	public function Handler()
 	{
 		$db = mysqli_connect("localhost","fractum","fractum","fractum");
-		require_once("./Model/User.php");
+		//require_once("./Model/User.php");
 		$cookieStatus = $this->CheckCookie($db);
 
 		if($this->actions[0]=='Login')
@@ -158,6 +161,7 @@ class RequestManager
 			$token = rand();
 
 			setcookie('user',$userData['dni'],time()+(30*24*60*60),'/');
+			setcookie('nick',$userData['name'],time()+(30*24*60*60),'/');
 			setcookie('type',$userData['type'],time()+(30*24*60*60),'/');
 			setcookie('rule',$userData['rule'],time()+(30*24*60*60),'/');
 			setcookie('token',$token,time()+(30*24*60*60),'/');
@@ -168,9 +172,11 @@ class RequestManager
 
 		elseif ($action=='Logout')
 		{
-			setcookie('user',null,-1,'/'); unset($_COOKIE['user']);
-			setcookie('token',null,-1,'/'); unset($_COOKIE['token']);
-			setcookie('type',null,-1,'/'); unset($_COOKIE['type']);
+			setcookie('user','',false,'/'); unset($_COOKIE['user']);
+			setcookie('nick','',false,'/'); unset($_COOKIE['nick']);
+			setcookie('token','',false,'/'); unset($_COOKIE['token']);
+			setcookie('type','',false,'/'); unset($_COOKIE['type']);
+			setcookie('rule','',false,'/'); unset($_COOKIE['rule']);
 			session_unset(); header("Location: ../index.php",false);
 		}
 	}
@@ -198,17 +204,18 @@ class RequestManager
     	return $toString;
     }
 
-		protected function GestDeps()
+	public function GestDeps()
+	{
+		require_once("./Model/User.php");
+		$db = mysqli_connect("localhost","fractum","fractum","fractum");
+		if(!empty($this->deps))
 		{
-			$db = mysqli_connect("localhost","fractum","fractum","fractum");
-			if(!empty($this->deps))
+			foreach($this->deps as $dep)
 			{
-				foreach($this->deps as $dep)
-				{
-					Trigger($dep,'Puller',$db,null);
-				}
+				$this->Trigger($dep,'Puller',$db,null);
 			}
 		}
+	}
 }
 
 

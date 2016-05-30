@@ -1,4 +1,8 @@
-<?php $issueDetail=$_SESSION['IssueReader'][0];?>
+<?php
+	$issueDetail=$_SESSION['IssueReader'][0];
+	$devices = $_SESSION['DevicePuller'];
+	$companies = $_SESSION['CompanyPuller'];
+?>
 
 <form method="post" action="../../Back/RequestManager.php?actors=Issue,Issue&actions=Puller,Updater&targets=S,A">
 	
@@ -16,7 +20,19 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>EMPRESA</label>
-	  		<input type="text" name="company" class="form-control" value="<?php echo $issueDetail['company']; ?>">
+			<select name="company" class="form-control">
+<?php 		foreach($companies as $company){
+				if($company['cif'] == $issueDetail['company']){
+?>
+				<option hidden selected value="<?php echo $issueDetail['company'] ?>"><?php echo $company['name'] ?></option>
+<?php 
+				}
+			}
+			foreach($companies as $company){
+?>
+				<option value="<?php echo $company['cif']; ?>"><?php echo $company['name']; ?></option>
+<?php 	 	} ?>
+			</select>
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>ESTADO</label>

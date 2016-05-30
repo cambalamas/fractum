@@ -1,4 +1,4 @@
-<?php $userDetail=$_SESSION['UserReader'][0];?>
+<?php $userDetail=$_SESSION['UserReader'][0]; $types = $_SESSION['PermissionsPuller']; ?>
 
 <form method="post" action="../../Back/RequestManager.php?actors=User,User&actions=Puller,Updater&targets=S,A">
 	
@@ -39,7 +39,12 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>TIPO</label>
-	  		<input type="text" name="type" class="form-control" value="<?php echo $userDetail['type'] ?>">
+			<select class="form-control" name="type">
+				<option hidden selected value="<?php echo $userDetail['type']; ?>"><?php echo $userDetail['type']; ?></option>
+			<?php foreach($types as $type){ ?>
+				<option value="<?php echo $type['type']; ?>"><?php echo $type['type']; ?></option>
+			<?php } ?>
+			</select>
 	  	</div>
 	</div>
 

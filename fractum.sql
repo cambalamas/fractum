@@ -93,8 +93,8 @@ CREATE TABLE `issue` (
 	`owner` varchar(15),
 	`device` varchar(50),
 	`company` varchar(15),
-	`openDate` datetime NOT NULL, /*Automática*/
-	`closeDate` datetime NOT NULL, /*Automática*/
+	`openDate` datetime, /*Automática*/
+	`closeDate` datetime, /*Automática*/
 	PRIMARY KEY (`id`),
 	CONSTRAINT `issue_fk_1` FOREIGN KEY (`owner`) REFERENCES `user` (`dni`) on delete set null,
 	CONSTRAINT `issue_fk_2` FOREIGN KEY (`company`) REFERENCES `company` (`cif`) on delete set null,
