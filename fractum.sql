@@ -120,60 +120,12 @@ CREATE TABLE `lineManagers` (
 	CONSTRAINT `lineManagers_fk_2` FOREIGN KEY (`line`) REFERENCES `line` (`id`) on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*****************************************************************************/
-/********************************* INSERTS ***********************************/
--- Admin Permissions
-INSERT INTO `permissions` (`type`, `actor`, `action`, `value`)
-VALUES
-	('admin','Permissions','Creator','1'),
-	('admin','Permissions','Eraser','1'),
-	('admin','Permissions','Puller','1'),
-	('admin','Permissions','Updater','1'),
-	('admin','Commit','Creator','1'),
-	('admin','Commit','Eraser','1'),
-	('admin','Commit','Puller','1'),
-	('admin','Commit','Reader','1'),
-	('admin','Commit','Seeker','1'),
-	('admin','Commit','Updater','1'),
-	('admin','Company','Creator','1'),
-	('admin','Company','Eraser','1'),
-	('admin','Company','Puller','1'),
-	('admin','Company','Reader','1'),
-	('admin','Company','Seeker','1'),
-	('admin','Company','Updater','1'),
-	('admin','Device','Creator','1'),
-	('admin','Device','Eraser','1'),
-	('admin','Device','Puller','1'),
-	('admin','Device','Reader','1'),
-	('admin','Device','Seeker','1'),
-	('admin','Device','Updater','1'),
-	('admin','Issue','Creator','1'),
-	('admin','Issue','Eraser','1'),
-	('admin','Issue','Puller','1'),
-	('admin','Issue','Reader','1'),
-	('admin','Issue','Seeker','1'),
-	('admin','Issue','Updater','1'),
-	('admin','Line','Creator','1'),
-	('admin','Line','Eraser','1'),
-	('admin','Line','Puller','1'),
-	('admin','Line','Reader','1'),
-	('admin','Line','Seeker','1'),
-	('admin','Line','Updater','1'),
-	('admin','Upkeep','Creator','1'),
-	('admin','Upkeep','Eraser','1'),
-	('admin','Upkeep','Puller','1'),
-	('admin','Upkeep','Reader','1'),
-	('admin','Upkeep','Seeker','1'),
-	('admin','Upkeep','Updater','1'),
-	('admin','User','Creator','1'),
-	('admin','User','Eraser','1'),
-	('admin','User','Puller','1'),
-	('admin','User','Reader','1'),
-	('admin','User','Seeker','1'),
-	('admin','User','Updater','1');
--- Admin User
-INSERT INTO `user` (`token`, `type`, `dni`, `pass`, `name`, `surname`, `prefix`, `phone`, `mail`)
-VALUES (null,'admin','admin','admin','admin','admin','+',000000000,'admin@domain.com');
-/*****************************************************************************/
+/********************************** INSERTS ***********************************/
+INSERT INTO `permissions` VALUES ('admin','Commit','Creator',1),('admin','Commit','Eraser',1),('admin','Commit','Puller',1),('admin','Commit','Reader',1),('admin','Commit','Seeker',1),('admin','Commit','Updater',1),('admin','Company','Creator',1),('admin','Company','Eraser',1),('admin','Company','Puller',1),('admin','Company','Reader',1),('admin','Company','Seeker',1),('admin','Company','Updater',1),('admin','Device','Creator',1),('admin','Device','Eraser',1),('admin','Device','Puller',1),('admin','Device','Reader',1),('admin','Device','Seeker',1),('admin','Device','Updater',1),('admin','Issue','Creator',1),('admin','Issue','Eraser',1),('admin','Issue','Puller',1),('admin','Issue','Reader',1),('admin','Issue','Seeker',1),('admin','Issue','Updater',1),('admin','Line','Creator',1),('admin','Line','Eraser',1),('admin','Line','Puller',1),('admin','Line','Reader',1),('admin','Line','Seeker',1),('admin','Line','Updater',1),('admin','Permissions','Creator',1),('admin','Permissions','Eraser',1),('admin','Permissions','Puller',1),('admin','Permissions','Updater',1),('admin','Upkeep','Creator',1),('admin','Upkeep','Eraser',1),('admin','Upkeep','Puller',1),('admin','Upkeep','Reader',1),('admin','Upkeep','Seeker',1),('admin','Upkeep','Updater',1),('admin','User','Creator',1),('admin','User','Eraser',1),('admin','User','Puller',1),('admin','User','Reader',1),('admin','User','Seeker',1),('admin','User','Updater',1);
+INSERT INTO `user` VALUES (586366414,'admin','admin','admin','admin','admin','+',0,'admin@domain.com');
+INSERT INTO `company` VALUES ('default','default','0',0,'default@default.com','default');
+INSERT INTO `upkeep` VALUES ('none','default',0,0,0.00,'0001-01-01 01:01:01');
+/********************************** INSERTS ***********************************/
 /*********************************** VIEW ************************************/
 CREATE OR REPLACE VIEW device_view AS
 	SELECT d.name, d.line,
