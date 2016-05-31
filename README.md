@@ -11,6 +11,7 @@
 
 
 *	Vista permisos : editar nombre de permisos con JS con onclick y onblur
+*	Líneas añaden aunque no estén los campos cubiertos
 
 
 

@@ -19,6 +19,7 @@ session_start();
     <script src="../min.js"></script>
     <link href="../min.css" rel="stylesheet">
     <link href="../custom.css" rel="stylesheet">
+    <script src="../check.js"></script>
 </head>
 
 <div class="container">
