@@ -1,4 +1,8 @@
-<?php $deviceDetail=$_SESSION['DeviceReader'][0];?>
+<?php
+	$deviceDetail=$_SESSION['DeviceReader'][0];
+	$upkeeps = $_SESSION['UpkeepPuller'];
+	$lines = $_SESSION['LinePuller'];
+?>
 
 <form method="post" action="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Updater&targets=S,A">
 	
@@ -17,7 +21,18 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>MANTENIMIENTO</label>
-	  		<input type="text" name="upkeep" class="form-control" value="<?php echo $deviceDetail['upkeep'] ?>">
+			<select name="upkeep" class="form-control">
+				<?php foreach($upkeeps as $upkeep){ 
+						if($upkeep['id'] == $deviceDetail['id']){
+				?>
+				<option hidden selected value="<?php echo $deviceDetail['upkeep']; ?>"><?php echo $upkeep['name']; ?></option>
+				<?php 
+						}
+					  } 
+					  foreach($upkeeps as $upkeep){ ?>
+				<option value="<?php echo $upkeep['id']; ?>"><?php echo $upkeep['name']; ?></option>
+				<?php } ?>
+			</select>
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>FECHA DE INSTALACIÓN</label>
@@ -32,7 +47,12 @@
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>LÍNEA PERTENECIENTE</label>
-	  		<input type="text" name="line" class="form-control" value="<?php echo $deviceDetail['line'] ?>">
+			<select name="line" class="form-control">
+				<option hidden selected value="<?php echo $line['id']; ?>"><?php echo $line['name']; ?></option>
+				<?php foreach($lines as $line){ ?>
+				<option value="<?php echo $line['id']; ?>"><?php echo $line['name']; ?></option>
+				<?php } ?>
+			</select>
 	  	</div>
 	</div>
 

@@ -1,9 +1,16 @@
+<?php $companies = $_SESSION['CompanyPuller']; ?>
+
 <form method="post" action="../../Back/RequestManager.php?actors=Upkeep,Upkeep&actions=Puller,Creator&targets=S,A">
 
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>EMPRESA</label>
-	  		<input type="text" name="company" class="form-control" value="">
+			<select name="company" class="form-control">
+				<option selected hidden value="null">-</option>
+				<?php foreach($companies as $company){ ?>
+				<option value="<?php echo $company['cif']; ?>"><?php echo $company['name']; ?></option>
+				<?php } ?>
+			</select>
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>FECHA DE ALTA</label>

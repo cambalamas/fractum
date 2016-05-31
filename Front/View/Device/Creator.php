@@ -1,3 +1,8 @@
+<?php
+	$upkeeps = $_SESSION['UpkeepPuller'];
+	$lines = $_SESSION['LinePuller'];
+?>
+
 <form method="post" action="../../Back/RequestManager.php?actors=Device,Device&actions=Puller,Creator&targets=S,A">
 
 	<div class="row center-block">
@@ -14,11 +19,15 @@
 	<br><div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>MANTENIMIENTO</label>
-	  		<input type="text" name="upkeep" class="form-control" value="">
+			<select name="upkeep" class="form-control">
+				<?php foreach($upkeeps as $upkeep){ ?>
+				<option value="<?php echo $upkeep['id']; ?>"><?php echo $upkeep['name']; ?></option>
+				<?php } ?>
+			</select>
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>FECHA DE INSTALACIÓN</label>
-	  		<input type="text" name="date" class="form-control" value="">
+	  		<input type="text" name="date" class="form-control" value="<?php echo date('Y/m/d H:i:s'); ?>" readonly>
 	  	</div>
 	</div>
 
@@ -29,7 +38,11 @@
 	  	</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>LÍNEA PERTENECIENTE</label>
-	  		<input type="text" name="line" class="form-control" value="">
+			<select name="line" class="form-control">
+				<?php foreach($lines as $line){ ?>
+				<option value="<?php echo $line['id']; ?>"><?php echo $line['name']; ?></option>
+				<?php } ?>
+			</select>
 	  	</div>
 	</div>
 
