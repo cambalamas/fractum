@@ -33,9 +33,9 @@ CREATE TABLE `user` (
 	`pass` varchar(20) NOT NULL,
 	`name` varchar(20) NOT NULL,
 	`surname` varchar(20) NOT NULL,
-	`prefix` varchar(4) NOT NULL,
-	`phone` int(9) NOT NULL,
-	`mail` varchar(50) NOT NULL,
+	`prefix` varchar(5),
+	`phone` int(9),
+	`mail` varchar(50),
 	PRIMARY KEY (`dni`),
 	CONSTRAINT `user_fk_1` FOREIGN KEY (`type`) REFERENCES `permissions` (`type`) on delete set null
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
