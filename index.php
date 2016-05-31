@@ -5,10 +5,8 @@
 	    else
 	    	header("Location: Front/View/Layout.php",false);
     }
-    else{ //echo $_GET['fail'];
-    	echo 'Cookie:<br>';var_dump($_COOKIE);
-    	echo '<br>';
-    	echo '<br>';
-    	var_dump($_SESSION);
-    } 
+    else{ /*echo $_GET['fail'];*/ session_start();
+    	echo 'Cookie:<br>'; var_dump($_COOKIE);
+      echo '<br><br>Session:<br>'; var_dump($_SESSION);
+    }
 ?>

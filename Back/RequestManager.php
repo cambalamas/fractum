@@ -172,12 +172,12 @@ class RequestManager
 
 		elseif ($action=='Logout')
 		{
-			setcookie('user','',false,'/'); unset($_COOKIE['user']);
-			setcookie('nick','',false,'/'); unset($_COOKIE['nick']);
-			setcookie('token','',false,'/'); unset($_COOKIE['token']);
-			setcookie('type','',false,'/'); unset($_COOKIE['type']);
-			setcookie('rule','',false,'/'); unset($_COOKIE['rule']);
-			session_unset(); header("Location: ../index.php",false);
+			setcookie('user',null,false,'/'); unset($_COOKIE['user']);
+			setcookie('nick',null,false,'/'); unset($_COOKIE['nick']);
+			setcookie('token',null,false,'/'); unset($_COOKIE['token']);
+			setcookie('type',null,false,'/'); unset($_COOKIE['type']);
+			setcookie('rule',null,false,'/'); unset($_COOKIE['rule']);
+			session_unset(); session_destroy(); header("Location: ../index.php",false);
 		}
 	}
 
