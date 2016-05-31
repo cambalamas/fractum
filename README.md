@@ -10,6 +10,9 @@
 *   Devolución de errores controlada. (BD, subida de archivos...)
 
 
+*	Vista permisos : editar nombre de permisos con JS con onclick y onblur
+
+
 
 # Manual CORE.
 

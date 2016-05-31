@@ -4,6 +4,11 @@
 
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<label>NOMBRE</label>
+			<input type="text" name="name" class="form-control" value="">
+	  	</div>
+
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>EMPRESA</label>
 			<select name="company" class="form-control">
 				<option selected hidden value="null">-</option>
@@ -11,10 +16,6 @@
 				<option value="<?php echo $company['cif']; ?>"><?php echo $company['name']; ?></option>
 				<?php } ?>
 			</select>
-	  	</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<label>FECHA DE ALTA</label>
-	  		<input type="text" name="date" class="form-control" value="">
 	  	</div>
 	</div>
 
@@ -34,6 +35,10 @@
 	</div>
 
 	<br><div class="row center-block">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<label>FECHA DE ALTA</label>
+	  		<input type="text" name="date" class="form-control" value="">
+		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>COSTE</label>
 	  		<input type="text" name="cost" class="form-control" value=""> 

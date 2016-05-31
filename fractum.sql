@@ -76,7 +76,7 @@ CREATE TABLE `company` (
 
 CREATE TABLE `upkeep` (
 	`id` varchar(4) NOT NULL,
-	`name` varchar(25) NOT NULL
+	`name` varchar(25) NOT NULL,
 	`company` varchar(15) NOT NULL,
 	`time` int(2) NOT NULL,
 	`unit` tinyint(1) NOT NULL, /*(0:semanas, 1:meses, 2:años)*/
@@ -139,10 +139,10 @@ CREATE TABLE `lineManagers` (
 /********************************* CREATES ************************************/
 
 /********************************** INSERTS ***********************************/
-INSERT INTO `permissions` VALUES ('admin','Commit','Creator',1),('admin','Commit','Eraser',1),('admin','Commit','Puller',1),('admin','Commit','Reader',1),('admin','Commit','Seeker',1),('admin','Commit','Updater',1),('admin','Company','Creator',1),('admin','Company','Eraser',1),('admin','Company','Puller',1),('admin','Company','Reader',1),('admin','Company','Seeker',1),('admin','Company','Updater',1),('admin','Device','Creator',1),('admin','Device','Eraser',1),('admin','Device','Puller',1),('admin','Device','Reader',1),('admin','Device','Seeker',1),('admin','Device','Updater',1),('admin','Issue','Creator',1),('admin','Issue','Eraser',1),('admin','Issue','Puller',1),('admin','Issue','Reader',1),('admin','Issue','Seeker',1),('admin','Issue','Updater',1),('admin','Line','Creator',1),('admin','Line','Eraser',1),('admin','Line','Puller',1),('admin','Line','Reader',1),('admin','Line','Seeker',1),('admin','Line','Updater',1),('admin','Permissions','Creator',1),('admin','Permissions','Eraser',1),('admin','Permissions','Puller',1),('admin','Permissions','Updater',1),('admin','Upkeep','Creator',1),('admin','Upkeep','Eraser',1),('admin','Upkeep','Puller',1),('admin','Upkeep','Reader',1),('admin','Upkeep','Seeker',1),('admin','Upkeep','Updater',1),('admin','User','Creator',1),('admin','User','Eraser',1),('admin','User','Puller',1),('admin','User','Reader',1),('admin','User','Seeker',1),('admin','User','Updater',1);
+INSERT INTO `permissions` VALUES ('_adm','admin','Commit','Creator',1),('_adm','admin','Commit','Eraser',1),('_adm','admin','Commit','Puller',1),('_adm','admin','Commit','Reader',1),('_adm','admin','Commit','Seeker',1),('_adm','admin','Commit','Updater',1),('_adm','admin','Company','Creator',1),('_adm','admin','Company','Eraser',1),('_adm','admin','Company','Puller',1),('_adm','admin','Company','Reader',1),('_adm','admin','Company','Seeker',1),('_adm','admin','Company','Updater',1),('_adm','admin','Device','Creator',1),('_adm','admin','Device','Eraser',1),('_adm','admin','Device','Puller',1),('_adm','admin','Device','Reader',1),('_adm','admin','Device','Seeker',1),('_adm','admin','Device','Updater',1),('_adm','admin','Issue','Creator',1),('_adm','admin','Issue','Eraser',1),('_adm','admin','Issue','Puller',1),('_adm','admin','Issue','Reader',1),('_adm','admin','Issue','Seeker',1),('_adm','admin','Issue','Updater',1),('_adm','admin','Line','Creator',1),('_adm','admin','Line','Eraser',1),('_adm','admin','Line','Puller',1),('_adm','admin','Line','Reader',1),('_adm','admin','Line','Seeker',1),('_adm','admin','Line','Updater',1),('_adm','admin','Permissions','Creator',1),('_adm','admin','Permissions','Eraser',1),('_adm','admin','Permissions','Puller',1),('_adm','admin','Permissions','Updater',1),('_adm','admin','Upkeep','Creator',1),('_adm','admin','Upkeep','Eraser',1),('_adm','admin','Upkeep','Puller',1),('_adm','admin','Upkeep','Reader',1),('_adm','admin','Upkeep','Seeker',1),('_adm','admin','Upkeep','Updater',1),('_adm','admin','User','Creator',1),('_adm','admin','User','Eraser',1),('_adm','admin','User','Puller',1),('_adm','admin','User','Reader',1),('_adm','admin','User','Seeker',1),('_adm','admin','User','Updater',1);
 INSERT INTO `user` VALUES (586366414,'admin','admin','admin','admin','admin','+',0,'admin@domain.com');
 INSERT INTO `company` VALUES ('default','default','0',0,'default@default.com','default');
-INSERT INTO `upkeep` VALUES ('none','default',0,0,0.00,'0001-01-01 01:01:01');
+INSERT INTO `upkeep` VALUES ('none','default','default',0,0,0.00,'0001-01-01 01:01:01',null);
 /********************************** INSERTS ***********************************/
 
 /*********************************** VIEW *************************************/

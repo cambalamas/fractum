@@ -12,12 +12,13 @@
 
 	<div class="row center-block">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<label>NOMBRE</label>
+			<input type="text" name="name" disabled class="form-control" value="<?php echo $upkeepDetail['name']; ?>">
+	  	</div>
+
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>EMPRESA</label>
 	  		<input type="text" name="company" disabled class="form-control" value="<?php echo $upkeepDetail['company']; ?>">
-	  	</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<label>FECHA DE ALTA</label>
-	  		<input type="text" name="date" disabled class="form-control" value="<?php echo $upkeepDetail['date']; ?>">
 	  	</div>
 	</div>
 
@@ -38,6 +39,11 @@
 	</div>
 
 	<br><div class="row center-block">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<label>FECHA DE ALTA</label>
+	  		<input type="text" name="date" disabled class="form-control" value="<?php echo $upkeepDetail['date']; ?>">
+		</div>
+
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 			<label>COSTE</label>
 	  		<input type="text" name="cost" disabled class="form-control" value="<?php echo $upkeepDetail['cost']; ?>">
