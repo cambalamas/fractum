@@ -12,8 +12,8 @@ GRANT USAGE ON *.* TO 'fractum'@'localhost';
 DROP USER 'fractum'@'localhost';
 CREATE USER 'fractum'@'localhost' IDENTIFIED BY 'fractum';
 GRANT USAGE ON * . * TO  'fractum'@'localhost' IDENTIFIED BY  'fractum'
-WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
-GRANT ALL PRIVILEGES ON  fractum . * TO  'fractum'@'localhost' WITH GRANT OPTION ;
+WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON  fractum . * TO  'fractum'@'localhost' WITH GRANT OPTION;
 /*********************************** USERS ************************************/
 
 /********************************* CREATES ************************************/
@@ -27,8 +27,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE `user` (
-	`token` int(15) DEFAULT NULL,
-	`type` varchar(20) DEFAULT NULL,
+	`type` varchar(20) NOT NULL,
 	`dni` varchar(15) NOT NULL,
 	`pass` varchar(20) NOT NULL,
 	`name` varchar(20) NOT NULL,
@@ -38,6 +37,13 @@ CREATE TABLE `user` (
 	`mail` varchar(50),
 	PRIMARY KEY (`dni`),
 	CONSTRAINT `user_fk_1` FOREIGN KEY (`type`) REFERENCES `permissions` (`type`) on delete set null
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+CREATE TABLE `acces` (
+	`user` varchar(15) NOT NULL,
+	`token` varchar(15) NOT NULL,
+	PRIMARY KEY (`user`,`token`),
+	CONSTRAINT `acces_fk_1` FOREIGN KEY (`user`) REFERENCES `user` (`dni`) on delete cascade
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 CREATE TABLE `definedRules` (

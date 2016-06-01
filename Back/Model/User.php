@@ -4,7 +4,7 @@ class User
 {
 	function Handler($action,$db,$data)
 	{
-		if($action=='Logout') return User::SetUserToken($db,array($_COOKIE['user'],null));
+		if($action=='Logout') return User::UnsetUserToken($db,array($_COOKIE['user'],$_COOKIE['token']));
 		else return User::$action($db,$data);
 	}
 
@@ -14,7 +14,7 @@ class User
 		$sql = mysqli_prepare($db, "SELECT dni,type,name FROM user WHERE dni = ? AND pass = ?");
 		mysqli_stmt_bind_param($sql, 'ss', $data['name'], $data['pass']); mysqli_stmt_execute($sql);
 		$sqlObject = mysqli_stmt_get_result($sql); mysqli_stmt_close($sql);
-		
+		var_dump("yep"); exit;
 		$tag = (String) __CLASS__.__FUNCTION__;
 		return array($tag,$sqlObject);
 	}
@@ -44,10 +44,16 @@ class User
 
 	function SetUserToken($db,$data)
 	{
-		$sql = mysqli_prepare($db, "UPDATE user SET token = ? WHERE dni= ?");
-		mysqli_stmt_bind_param($sql, 'is', $data[1], $data[0]);
-		mysqli_stmt_execute($sql); 
-		mysqli_stmt_close($sql);
+		$sql = mysqli_prepare($db, "INSERT INTO acces(user,token) VALUES (?,?)");
+		mysqli_stmt_bind_param($sql, 'ss', $data[0],$data[1]);
+		mysqli_stmt_execute($sql); mysqli_stmt_close($sql);
+	}
+
+	function UnsetUserToken($db,$data)
+	{
+		$sql = mysqli_prepare($db, "DELETE FROM acces WHERE user = ? AND token = ?");
+		mysqli_stmt_bind_param($sql, 'ss', $data[0],$data[1]);
+		mysqli_stmt_execute($sql); mysqli_stmt_close($sql);
 	}
 
 	function CheckUserToken($db,$data)
@@ -55,7 +61,7 @@ class User
 		$sql = mysqli_prepare($db, "SELECT token FROM user WHERE dni = ? AND token = ?");
 		mysqli_stmt_bind_param($sql, 'ss', $_COOKIE['user'], $_COOKIE['token']);
 		mysqli_stmt_execute($sql);
-		
+
 		$sqlObject = mysqli_stmt_get_result($sql);
 		mysqli_stmt_close($sql);
 
@@ -70,7 +76,7 @@ class User
 		$sql = mysqli_prepare($db, "SELECT * FROM user WHERE dni LIKE ? OR name LIKE ? OR surname LIKE ? OR phone = ? OR mail LIKE ?");
 		mysqli_stmt_bind_param($sql, 'sssss', $likeStr,$likeStr,$likeStr,$likeStr,$likeStr);
 		mysqli_stmt_execute($sql);
-		
+
 		$sqlObject = mysqli_stmt_get_result($sql);
 		mysqli_stmt_close($sql);
 		return $sqlObject;
@@ -82,12 +88,12 @@ class User
     	$sql = mysqli_prepare($db, "SELECT * FROM user WHERE dni = ?");
 		mysqli_stmt_bind_param($sql, 's', $data['dni']);
 		mysqli_stmt_execute($sql);
-		
+
 		$sqlObject = mysqli_stmt_get_result($sql);
 		mysqli_stmt_close($sql);
 
 		$tag = (String) __CLASS__.__FUNCTION__;
-		return array($tag,$sqlObject); 
+		return array($tag,$sqlObject);
     }
 
 	function Puller($db,$data) //$WHO tiene que ser la vista en la DB no la tabla.
@@ -96,7 +102,7 @@ class User
 		$sqlObject = mysqli_stmt_get_result($sql); mysqli_stmt_close($sql);
 
 		$tag = (String) __CLASS__.__FUNCTION__;
-		return array($tag,$sqlObject); 
+		return array($tag,$sqlObject);
 	}
 
     function Creator($db,$data)
@@ -119,7 +125,7 @@ class User
 		mysqli_stmt_bind_param($sql, 'sssssis', $data["pass"],$data["name"],$data["surname"],$data["mail"],$pre,$phone,$data["dni"]);
 		mysqli_stmt_execute($sql); mysqli_stmt_close($sql);
     }
-    
+
     function Eraser($db,$data)
     {
     	$sql = mysqli_prepare($db, "DELETE FROM user WHERE dni = ?");

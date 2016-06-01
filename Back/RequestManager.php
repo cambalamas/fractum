@@ -34,9 +34,7 @@ class RequestManager
 		if($this->actions[0]=='Login')
 		{
 			$this->Trigger('User','Login',$db,$this->data);
-			mysqli_close($db);
-
-			header("Location: ../index.php", false); //HOME con estadísticas.
+			mysqli_close($db); header("Location: ../index.php", false); //HOME con estadísticas.
 		}
 
 		elseif($cookieStatus)
