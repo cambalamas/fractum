@@ -1,1 +1,1 @@
-# ABANDONED.
+# Discontinued.
